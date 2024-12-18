@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Pronosticos</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+
+
+</head>
+
+<body class="body">
+
+    <div class="cont-principal">
+        <div class="content-all">
+            <div class="nav-sup-lat" id="nav-sup-lat">
+                
+                <div class="cont-aciertos">
+                    <h6>%AC-GOLES: </h6>
+                    <h4 class="porcentajes" id="porcentaje-goles">
+
+                    </h4>
+
+                    <h6>>1.5: </h6>
+                    <h4 class="porcentajes" id="porcentaje-uno">
+
+                    </h4>
+                  
+                    <h6><3.5</h6>
+                    <h4 class="porcentajes" id="porcentaje-tres">
+
+                    </h4>
+
+                </div>
+            </div>
+            <div class="pronosticos-content d-flex justify-content-between bg-secondary">
+
+                <div class="cont-items mx-2 overflow-auto px-2">
+                    <div class="item-nav ">
+                        <button onclick="getPronostico('premier-league')" class="btn btn-light my-1">Premier L</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('serie-a')" class="btn btn-light my-1">Serie A</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('bundesliga')" class="btn btn-light my-1">Bundesliga</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('CL')" class="btn btn-light my-1">Champions L</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('eredivisie')" class="btn btn-light my-1">Eredivise</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('ligue-1')" class="btn btn-light my-1">Ligue 1</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('laliga-ea-sports')" class="btn btn-light my-1">La liga</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('liga-portugal')" class="btn btn-light my-1">Liga Portugal</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('super-lig')" class="btn btn-light my-1">1 League (Turk)</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('jupiler-pro-league')" class="btn btn-light my-1">JPro L (Belg)</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('championship')" class="btn btn-warning my-1">championship (ENG)</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('serie-b')" class="btn btn-warning my-1">Serie B (IT)</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('2-bundesliga')" class="btn btn-warning my-1">2. Bundesliga (AL)</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('keuken-kampioen-divisie')" class="btn btn-warning my-1">k-k-d (HOL)</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('ligue-2')" class="btn btn-warning my-1">ligue-2 (FR)</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('laliga-hypermotion')" class="btn btn-warning my-1">laliga hypermotion (ESP)</button>
+                    </div>
+
+                    <div class="item-nav">
+                        <button onclick="getPronostico('liga-portugal-2')" class="btn btn-warning my-1">2. Portugal (POR)</button>
+                    </div>
+                    <div class="item-nav">
+                        <button onclick="getPronostico('challenger-pro-league')" class="btn btn-warning my-1">challenger pro league (BEL)</button>
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-center bg-dark overflow-auto">
+                    <table id="myTable" class="display w-100 table table-striped tr-pronosticos">
+                        <thead>
+                            <tr><th scope="col">#</th>
+                                <th scope="col">fecha</th>
+                                <th scope="col">jornada</th>
+                                <th scope="col">home</th>
+                                <th scope="col">away</th>
+                                <th scope="col">goles home</th>
+                                <th scope="col">goles away</th>
+                                <th scope="col">suma-HA</th>
+                                <th scope="col">pronostico</th>
+                                <th scope="col">RGL home</th>
+                                <th scope="col">RGV away</th>
+                                <th scope="col">suma</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="script.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
