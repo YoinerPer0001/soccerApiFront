@@ -28,7 +28,7 @@ async function getMatches(country, league, index, type) {
   loader.style.display = 'flex';
 
 
-  fetch(`http://127.0.0.1:5000/api/partidos?country=${country}&league=${league}&type=${type}`)
+  fetch(`https://soccerapi-kaut.onrender.com/api/partidos?country=${country}&league=${league}&type=${type}`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -137,7 +137,7 @@ async function getData() {
   loader.style.display = 'flex';
 
 
-  fetch('http://127.0.0.1:5000/api/pronostics', {
+  fetch('https://soccerapi-kaut.onrender.com/api/pronostics', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // Indica que el contenido es JSON
@@ -196,7 +196,7 @@ let table = new DataTable('#myTable', {
 
 async function getPronostico(liga) {
   // Usar await para esperar a que la promesa se resuelva
-  const response = await fetch(`http://127.0.0.1:5000/api/pronosticos/lista?league=${liga}`);
+  const response = await fetch(`https://soccerapi-kaut.onrender.com/api/pronosticos/lista?league=${liga}`);
   const item = await response.json(); // Obtener los datos de la API
   const contPorGoles = document.getElementById("porcentaje-goles")
   const contPortres = document.getElementById("porcentaje-tres")
@@ -320,7 +320,7 @@ function inpColor(input) {
 
 async function updatePronostico(id,res_home = null, res_away= null) {
 
-  fetch('http://127.0.0.1:5000/api/pronostics', {
+  fetch('https://soccerapi-kaut.onrender.com/api/pronostics', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json', // Indica que el contenido es JSON
@@ -345,7 +345,7 @@ async function getResultados(country, league, index, type) {
   loader.style.display = 'flex';
 
 
-  fetch(`http://127.0.0.1:5000/api/partidos?country=${country}&league=${league}&type=${type}`)
+  fetch(`https://soccerapi-kaut.onrender.com/api/partidos?country=${country}&league=${league}&type=${type}`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -398,7 +398,7 @@ async function getDataResult() {
   loader.style.display = 'flex';
 
 
-  fetch('http://127.0.0.1:5000/api/pronostics/old', {
+  fetch('https://soccerapi-kaut.onrender.com/api/pronostics/old', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // Indica que el contenido es JSON
